@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FakultasController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -14,3 +15,44 @@ Route::get('profile', function () {
     return view("Profile");
 });
 
+// Route dengan parameter
+Route::get('welcome/{salam}', function($salam) {
+    // return 'Selamat '. $salam;
+    return view('salam')->with('viewsalam', $salam);
+});
+
+// Route tanpa parameter listdata
+// Terdapat array $list
+
+Route::get('listdata', function(){
+    $list = ["Sistem Informasi", "Informatika", "Manajemen"];
+    $listmhs = [
+        ["npm" => "001", "nama" => "ahmad"],
+        ["npm" => "002", "nama" => "budi"],
+        ["npm" => "003", "nama" => "donok"],
+        ["npm" => "004", "nama" => "juan"]
+    ];
+    $listnpm = [
+        ["npm" => "003", "nama" => "ahmad", "semester" => "3"],
+        ["npm" => "003", "nama" => "ahmad", "semester" => "4"],
+        ["npm" => "003", "nama" => "ahmad", "semester" => "5"],
+        ["npm" => "003", "nama" => "ahmad", "semester" => "3"]
+    ];
+
+    return view('listprodi')
+            ->with("viewlistprodi", $list)
+            ->with("viewmhs", $listmhs)
+            ->with("viewnpm", $listnpm);
+}); 
+
+Route::resource('fakultas', FakultasController::class);
+
+
+
+
+
+
+
+// Route::get('malam', function($salam){
+//     return 'Malam';
+// });
