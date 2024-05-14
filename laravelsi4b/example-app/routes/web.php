@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FakultasController;
+use App\Http\Controllers\ProdiController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -32,7 +33,7 @@ Route::get('listdata', function(){
         ["npm" => "003", "nama" => "donok"],
         ["npm" => "004", "nama" => "juan"]
     ];
-    $listnpm = [
+    $listnpm = [ 
         ["npm" => "003", "nama" => "ahmad", "semester" => "3"],
         ["npm" => "003", "nama" => "ahmad", "semester" => "4"],
         ["npm" => "003", "nama" => "ahmad", "semester" => "5"],
@@ -46,6 +47,7 @@ Route::get('listdata', function(){
 }); 
 
 Route::resource('fakultas', FakultasController::class);
+Route::resource('prodi', ProdiController::class);
 
 
 
