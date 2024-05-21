@@ -23,3 +23,4 @@
            <li> {{ $item["npm"] }} - {{ $item["nama"] }} - {{ $item["semester"]}}</li>
     @endforeach
 </ul>
+
