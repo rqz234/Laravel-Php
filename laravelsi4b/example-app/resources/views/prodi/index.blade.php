@@ -18,6 +18,7 @@
                         <tr>
                           <th>Nama Fakultas</th>
                           <th>Singkatan</th>
+                          <th>Fakultas</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -25,6 +26,7 @@
                             <tr>
                                 <td> {{ $item["nama"] }} </td>
                                 <td> {{ $item["singkatan"] }} </td>
+                                <td> {{ $item['fakultas'] }} </td>
                             </tr>
                         @endforeach
                       </tbody>
