@@ -15,4 +15,6 @@ class Prodi extends Model
         // 1 prodi 1 fakultas belongsTo()
         // 1 fakultas > 1 prodi hasMany()
     }
+
+    protected $fillable = ['nama', 'singkatan', 'fakultas_id'];
 }

@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="{{ url('css/style.css') }}">
   <!-- endinject -->
   <link rel="shortcut icon" href="{{ url('images/favicon.png') }}" />
+
 </head>
 <body>
   <div class="container-scroller d-flex">

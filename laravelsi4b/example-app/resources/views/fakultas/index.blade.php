@@ -5,7 +5,7 @@
 @section('content')
     <h2>Fakultas</h2>
 
-        <div class="col-lg-6 grid-margin stretch-card">
+        <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Fakultas</h4>
@@ -28,7 +28,7 @@
                         @foreach ($fakultas as $item)
                             <tr>
                                 <td> {{ $item["nama"] }} </td>
-                                <td> {{ $item["singkatan"] }} </td>
+                                <td> {{ $item["singkatan"] ["nama"] }} </td>
                             </tr>
                         @endforeach
                       </tbody>
@@ -37,6 +37,17 @@
                 </div>
               </div>
        </div>
- 
+
+@if (session('success'))
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  Swal.fire({
+    title: "Good job!",
+    text: "{{ session ('success') }}",
+    icon: "success",
+  });
+  </script>
+@endif
+
 @endsection
 

@@ -45,10 +45,10 @@ class FakultasController extends Controller
         Fakultas::create($val);
 
         // Redirect ke halaman list fakultas
-        return redirect()->route('fakultas.index')->with('success', $val['nama'].'berhasil disimpan');
+        return redirect()->route('fakultas.index')->with('success', $val['nama'].' berhasil disimpan');
     }
 
-    /**
+    /**return redirect()->route('fakultas.index')->with('success', $val['nama'].' berhasil disimpan');
      * Display the specified resource.
      */
     public function show(Fakultas $fakultas)
