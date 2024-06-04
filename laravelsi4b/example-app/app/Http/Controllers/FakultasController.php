@@ -16,7 +16,7 @@ class FakultasController extends Controller
         $nama = ["Dono", "Jalu"];
         return view('fakultas.index')
             ->with('fakultas', $fakultas)
-            -> with('nama', $nama);
+            ->with('nama', $nama);
     }
 
     /**

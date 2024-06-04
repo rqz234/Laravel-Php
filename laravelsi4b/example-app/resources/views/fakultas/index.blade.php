@@ -28,7 +28,7 @@
                         @foreach ($fakultas as $item)
                             <tr>
                                 <td> {{ $item["nama"] }} </td>
-                                <td> {{ $item["singkatan"] ["nama"] }} </td>
+                                <td> {{ $item["singkatan"]}} </td>
                             </tr>
                         @endforeach
                       </tbody>
