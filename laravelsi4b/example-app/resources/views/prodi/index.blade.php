@@ -32,6 +32,13 @@
                                 <td> {{ $item["nama"] }} </td>
                                 <td> {{ $item["singkatan"] }} </td>
                                 <td> {{ $item['fakultas'] ['nama'] }}  </td>
+                                <td>                                <td>
+                                    <form action="{{ route('prodi.destroy', $item['id']) }}" method="post">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="btn btn-sm btn-rounded btn-danger">Hapus</button>
+                                    </form>
+                                </td></td>
                             </tr>
                         @endforeach
                       </tbody>

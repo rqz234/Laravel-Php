@@ -13,7 +13,7 @@
                     Formulir Tambah Mahasiswa
                   </p>
                   <form method="POST" action="{{ route('mahasiswa.store') }}" 
-                  class="forms-sample">
+                  class="forms-sample" enctype="multipart/form-data">
                   @csrf
                     <div class="form-group">
                       <label for="npm">Npm</label>
@@ -59,14 +59,14 @@
                      <div class="form-group">
                       <label for="alamat">Alamat</label>
                       <input type="text" class="form-control" name="alamat" value="{{ old('alamat') }}"placeholder="Tempat Lahir">
-                      @error('tempat_lahir')
+                      @error('alamat')
                         <span class="text-danger">{{ $message }} </span>
                       @enderror
                     </div>
                     <div class="form-group">
                       <label for="alamat">Url Foto</label>
-                      <input type="text" class="form-control" name="url_foto" value="{{ old('url_foto') }}"placeholder="Url Foto">
-                      @error('tempat_lahir')
+                      <input type="file" class="form-control" name="url_foto" placeholder="Url Foto">
+                      @error('url_foto')
                         <span class="text-danger">{{ $message }} </span>
                       @enderror
                     </div>

@@ -17,6 +17,7 @@ return new class extends Migration
             $table -> string('nama', 45);
             $table -> string('tempat_lahir', 45);
             $table -> string('tanggal_lahir');
+            $table -> string('alamat');
             $table -> unsignedBigInteger('prodi_id');
             $table -> foreign('prodi_id')->references('id')->on('prodis');
             $table -> string('url_foto');
