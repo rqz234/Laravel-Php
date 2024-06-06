@@ -34,12 +34,11 @@
                             <tr>
                                 <td> {{ $item["npm"] }}</td>
                                 <td> {{ $item["nama"] }}</td>
-                                <td><img src="{{ url('foto/'.$item["url_foto"]) }}"></td>
                                 <td> {{ $item["tempat_lahir"] }}</td>
                                 <td> {{ $item["tanggal_lahir"] }}</td>
                                 <td> {{ $item["alamat"] }}</td>
                                 <td> {{ $item["prodi"]["nama"] }}</td>
-                                <td> {{ $item["url_foto"] }}</td>
+                                <td><img src="{{ url('foto/'.$item["url_foto"]) }}"></td>
                                 <td>
                                     <form action="{{ route('mahasiswa.destroy', $item['id']) }}" method="post">
                                         @method('DELETE')
@@ -62,7 +61,7 @@
 @if (session('success'))
   <script>
     Swal.fire({
-    title: "Sukses",
+    title: "",
     text: "{{ session('success') }}",
     icon: "success"
   });
