@@ -11,7 +11,7 @@
             <script src="https://code.highcharts.com/modules/export-data.js"></script>
             <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
-            {{-- ! HTML  --}}
+            {{-- HTML  --}}
             <figure class="highcharts-figure">
                 <div id="container"></div>
                 <p class="highcharts-description">
@@ -23,7 +23,7 @@
                 </p>
             </figure>
 
-            {{-- ! CSS --}}
+            {{-- CSS --}}
             <style>
             .highcharts-figure,
             .highcharts-data-table table {
@@ -73,7 +73,8 @@
             }
             </style>
            
-            {{-- ! JavaScript --}}
+
+            {{-- JavaScript --}}
             <script>
             Highcharts.chart('container', {
             chart: {
