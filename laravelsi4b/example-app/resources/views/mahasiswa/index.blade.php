@@ -14,7 +14,9 @@
                   List data Mahasiswa
                   </p>
                   {{-- tombol tambah --}}
-                  <a href="{{ route('mahasiswa.create') }}" class="btn btn-rounded btn-primary">tambah</a>
+                  @can('create', App\Fakultas::class)
+                      <a href="{{ route('mahasiswa.create') }}" class="btn btn-rounded btn-primary">tambah</a>
+                  @endcan
                   <div class="table-responsive">
                     <table class="table">
                       <thead>
@@ -26,7 +28,7 @@
                           <th>Tanggal Lahir</th>
                           <th>Alamat</th>
                           <th>Prodi Id</th>
-                          <th>Url Foto</th>
+                          {{-- <th>Url Foto</th> --}}
                         </tr>
                       </thead>
                       <tbody>
@@ -40,12 +42,16 @@
                                 <td> {{ $item["alamat"] }}</td>
                                 <td> {{ $item["prodi"]["nama"] }}</td>
                                 <td>
-                                    <form action="{{ route('mahasiswa.destroy', $item['id']) }}" method="post">
+                                  @can('delete', $item)
+                                    <form action="{{ route('mahasiswa.destroy', $item['id']) }}" method="post" style="display:inline">
                                         @method('DELETE')
                                         @csrf
                                         <button type="submit" class="btn btn-sm btn-rounded btn-danger show_confirm" data-name="{{  $item["nama"] }}">Hapus</button>
+                                      </form>
+                                  @endcan
+                                  @can('update', $item)
                                         <a href="{{ route('mahasiswa.edit', $item["id"]) }}" class="btn btn-sm btn-rounded btn-warning">Ubah</a>
-                                    </form>
+                                  @endcan()
                                 </td>
                             </tr>
                             @endforeach

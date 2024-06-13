@@ -12,6 +12,9 @@
                   <p class="card-description">
                     Formulir Tambah Prodi
                   </p>
+                  @can('create', App\Fakultas::class)
+                      <a href="{{ route('fakultas.create' )}}" class="btn btn-rounded btn-primary">Tambah</a>
+                  @endcan
                   <form method="POST" action="{{ route('prodi.store') }}" 
                   class="forms-sample">
                   @csrf

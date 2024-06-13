@@ -14,8 +14,9 @@
                   </p>
 
                   {{-- TOMBOL TAMBAH --}}
-
-                  <a href="{{ route('prodi.create') }}" class="btn btn-rounded btn-primary">Tambah</a>
+                  @can('create', App\Fakultas::class)
+                    <a href="{{ route('prodi.create') }}" class="btn btn-rounded btn-primary">Tambah</a>
+                  @endcan
 
                   <div class="table-responsive">
                     <table class="table">
@@ -29,16 +30,21 @@
                       <tbody>
                         @foreach ($prodi as $item)
                             <tr>
+                              @can('delete', $item)
                                 <td> {{ $item["nama"] }} </td>
                                 <td> {{ $item["singkatan"] }} </td>
                                 <td> {{ $item['fakultas'] ['nama'] }}  </td>
                                 <td>                                <td>
-                                    <form action="{{ route('prodi.destroy', $item['id']) }}" method="post">
+                                    <form action="{{ route('prodi.destroy', $item['id']) }}" method="post" style="display: inline">
                                         @method('DELETE')
                                         @csrf
                                         <button type="submit" class="btn btn-sm btn-rounded btn-danger">Hapus</button>
                                     </form>
+                                    @can('update', $item)
+                                        <a href="{{ route('prodi.edit', $item["id"]) }}" class="btn btn-sm btn-rounded btn-warning">Ubah</a>
+                                    @endcan
                                 </td></td>
+                              @endcan
                             </tr>
                         @endforeach
                       </tbody>

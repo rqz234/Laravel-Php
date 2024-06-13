@@ -1,4 +1,4 @@
-@extends('layout.main')
+<!-- @extends('layout.main')
 
 @section('title','Dashboard')
 
@@ -130,4 +130,4 @@
             </script>
         </div>
     </div>
-@endsection
+@endsection -->

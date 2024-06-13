@@ -32,6 +32,9 @@ class FakultasController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->user()->cannot('create', Fakultas::class)){
+            abort(403);
+        }
 
         // dd($request);
         // ! Validation Form
@@ -69,7 +72,9 @@ class FakultasController extends Controller
      */
     public function update(Request $request, Fakultas $fakultas)
     {
-        //
+        if(auth()->user()->cannot('update', $mahasiswa)){
+            abort(403);
+        }
     }
 
     /**
@@ -77,6 +82,8 @@ class FakultasController extends Controller
      */
     public function destroy(Fakultas $fakultas)
     {
-        //
+        if(auth()->user()->cannot('delete', $mahasiswa)){
+            abort(403);
+        }
     }
 }

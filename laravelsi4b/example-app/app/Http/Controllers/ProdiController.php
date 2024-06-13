@@ -32,7 +32,11 @@ class ProdiController extends Controller
      */
     public function store(Request $request)
     {
-        
+        if ($request->user()->cannot('create', Prodi::class)){
+            abort(403);
+        }
+
+
         $val = $request->validate([
             'nama' => "required|unique:prodis",
             'singkatan' => "required|max:4",
@@ -59,7 +63,9 @@ class ProdiController extends Controller
      */
     public function edit(Prodi $prodi)
     {
-        //
+            $prodi = Prodi::all();
+                return view('prodi.edit')
+                ->with('prodi', $prodi);
     }
 
     /**
@@ -67,7 +73,9 @@ class ProdiController extends Controller
      */
     public function update(Request $request, Prodi $prodi)
     {
-        //
+        if(auth()->user()->cannot('update', $mahasiswa)){
+            abort(403);
+        }
     }
 
     /**
@@ -75,6 +83,9 @@ class ProdiController extends Controller
      */
     public function destroy(Prodi $prodi)
     {
+        if(auth()->user()->cannot('delete', $mahasiswa)){
+            abort(403);
+        }
         $prodi->delete();
         return redirect()->route('prodi.index')->with('success', 'Data Berhasil Dihapus');
     }
