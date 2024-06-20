@@ -83,7 +83,7 @@ return [
             'driver' => 'pgsql',
             'url' => env('MYSQL_ADDON_URL'),
             'host' => env('MYSQL_ADDON_HOST', '127.0.0.1'),
-            'port' => env('MYSQL_ADDON_PORT', '5432'),
+            'port' => env('MYSQL_ADDON_PORT', '3306'),
             'database' => env('DB_DATABASE', 'laravel_si4b'),
             'username' => env('MYSQL_ADDON_USER', 'root'),
             'password' => env('MYSQL_ADDON_PASSWORD', ''),
